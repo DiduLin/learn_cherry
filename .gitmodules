@@ -1,3 +1,6 @@
 [submodule "cherry/cherry"]
 	path = cherry/cherry
 	url = https://github.com/cherry-game/cherry.git
+[submodule "cherry/examples"]
+	path = cherry/examples
+	url = https://github.com/cherry-game/examples.git
