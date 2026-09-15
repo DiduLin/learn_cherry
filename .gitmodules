@@ -1,0 +1,3 @@
+[submodule "cherry/cherry"]
+	path = cherry/cherry
+	url = https://github.com/cherry-game/cherry.git
