@@ -12,8 +12,8 @@
 - [X] **0.1** 环境准备：Go 1.24+、Git、NATS、etcd 就绪，`go version` 验证
 - [X] **0.2** 运行 `examples/demo_chat`，客户端成功连接
 - [X] **0.3** 运行 `examples/demo_cluster`，观察多节点发现与通信
-- [ ] **0.4** 用 Builder API 写最小服务（1 组件 + 1 Actor），SIGINT 关闭观察逆序停止
-- [ ] **0.5** IDE 断点跟踪：`main.go` → `cherry.New` → `Start` → `Stop` 完整调用链
+- [X] **0.4** 用 Builder API 写最小服务（1 组件 + 1 Actor），SIGINT 关闭观察逆序停止
+- [X] **0.5** IDE 断点跟踪：`main.go` → `cherry.New` → `Start` → `Stop` 完整调用链
 
 > ✅ 验收：5 分钟内从零拉起服务，能解释启动/关闭时发生了什么
 

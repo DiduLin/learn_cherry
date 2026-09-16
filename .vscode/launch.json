@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "name": "BuildAPI",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/build_api/.",
+            "console": "integratedTerminal"
+        }
+    ]
+}
