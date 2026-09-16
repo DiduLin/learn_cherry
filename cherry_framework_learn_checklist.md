@@ -15,7 +15,11 @@
 - [X] **0.4** 用 Builder API 写最小服务（1 组件 + 1 Actor），SIGINT 关闭观察逆序停止
 - [X] **0.5** IDE 断点跟踪：`main.go` → `cherry.New` → `Start` → `Stop` 完整调用链
 
-> ✅ 验收：5 分钟内从零拉起服务，能解释启动/关闭时发生了什么
+> ✅ 验收：5 分钟内从零拉起服务，能解释启动/关闭时发生了什么 
+>
+> 	启动 cherry 时，通过 cherry.Configurate 方法加载配置文件 profile（可以在 examples 获取），同时设置要启动的 NodeID 和节点模式，创建并返回一个 AppBuilder 对象。通过这个 AppBuilder 对象我们可以注册自己的 Component、Actor 和一些生命周期方法，比如 OnShutdown。
+> 	然后调用 AppBuilder.Startup 方法启动服务，服务启动会先注册 ICluster 集结组件 和 IDescovery 注册中心组件（使用 ClusterMode 的情况下），然后加载 ActorSystem，再加载 NetParser 网络消息组件（设置 isFrontend=true 的情况），然后按照 Compoent  组件的注册顺序，依次调用 OnInit -> OnAfterInit 方法，最后主协程监听中断信号并挂起。此时 Actor 协程已运行
+> 	当收到 SIGINT 中断信号后，会按照 Component 注册逆序调用 OnBeforeStop -> OnStop，然后调用所有 OnShutdown 方法，最后程序退出。
 
 ---
 
